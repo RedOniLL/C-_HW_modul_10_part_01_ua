@@ -6,7 +6,7 @@ namespace C__HW_modul_10_part_01_ua
     {
         static void Main(string[] args)
         {
-           
+            Console.WriteLine("Enter choise");
             int c = int.Parse(Console.ReadLine());
             switch (c) { 
                 case 0:
@@ -40,25 +40,86 @@ namespace C__HW_modul_10_part_01_ua
                     Console.WriteLine($"Next item in queue: {queue.Peek()}");
                     break ;
                 case 2:
-                    RingQueue<int> queue = new RingQueue<int>(5);
+                    RingQueue<int> queue1 = new RingQueue<int>(5);
 
-                    queue.Enqueue(10);
-                    queue.Enqueue(20);
-                    queue.Enqueue(30);
+                    queue1.Enqueue(10);
+                    queue1.Enqueue(20);
+                    queue1.Enqueue(30);
 
-                    Console.WriteLine($"Count: {queue.Count}, Capacity: {queue.Capacity}");
+                    Console.WriteLine($"Count: {queue1.Count}, Capacity: {queue1.Capacity}");
 
-                    int dequeuedItem = queue.Dequeue();
+                    int dequeuedItem = queue1.Dequeue();
                     Console.WriteLine($"Dequeued Item: {dequeuedItem}");
 
-                    Console.WriteLine($"Count: {queue.Count}, Capacity: {queue.Capacity}");
+                    Console.WriteLine($"Count: {queue1.Count}, Capacity: {queue1.Capacity}");
 
-                    int peekedItem = queue.Peek();
+                    int peekedItem = queue1.Peek();
                     Console.WriteLine($"Peeked Item: {peekedItem}");
 
-                    queue.Clear();
+                    queue1.Clear();
 
-                    Console.WriteLine($"Count: {queue.Count}, Capacity: {queue.Capacity}");
+                    Console.WriteLine($"Count: {queue1.Count}, Capacity: {queue1.Capacity}");
+                    break ;
+                case 3:
+                    SingleLinkedList<int> list = new SingleLinkedList<int>();
+
+                    list.AddFirst(10);
+                    list.AddLast(20);
+                    list.AddLast(30);
+
+                    Console.WriteLine($"List Count: {list.Count}");
+                    Console.WriteLine($"Is List Empty: {list.IsEmpty}");
+
+                    int removedItem = list.RemoveFirst();
+                    Console.WriteLine($"Removed Item: {removedItem}");
+
+                    Console.WriteLine($"List Count after RemoveFirst: {list.Count}");
+
+                    list.AddLast(40);
+                    list.AddLast(50);
+
+                    Console.WriteLine($"List Count after AddLast: {list.Count}");
+
+                    int searchItem = 40;
+                    int foundItem = list.Find(searchItem);
+                    Console.WriteLine($"Found Item {searchItem}: {foundItem}");
+
+                    int removedLastItem = list.RemoveLast();
+                    Console.WriteLine($"Removed Last Item: {removedLastItem}");
+
+                    Console.WriteLine($"List Count after RemoveLast: {list.Count}");
+
+                    list.Clear();
+
+                    Console.WriteLine($"List Count after Clear: {list.Count}");
+                    Console.WriteLine($"Is List Empty after Clear: {list.IsEmpty}");
+                    break;
+                case 4:
+                    DoubleLinkedList<int> list1 = new DoubleLinkedList<int>();
+
+                    list1.AddFirst(10);
+                    list1.AddLast(20);
+                    list1.AddLast(30);
+
+                    Console.WriteLine($"List Count: {list1.Count}");
+                    Console.WriteLine($"Is List Empty: {list1.IsEmpty}");
+
+                    int removedItem1 = list1.RemoveFirst();
+                    Console.WriteLine($"Removed First Item: {removedItem1}");
+
+                    int removedLastItem1 = list1.RemoveLast();
+                    Console.WriteLine($"Removed Last Item: {removedLastItem1}");
+
+                    Console.WriteLine($"List Count after Removal: {list1.Count}");
+
+                    int searchItem1 = 20;
+                    int foundItem1 = list1.Find(searchItem1);
+                    Console.WriteLine($"Found Item {searchItem1}: {foundItem1}");
+
+                    list1.Clear();
+
+                    Console.WriteLine($"List Count after Clear: {list1.Count}");
+                    Console.WriteLine($"Is List Empty after Clear: {list1.IsEmpty}");
                     break ;
             }
         }
